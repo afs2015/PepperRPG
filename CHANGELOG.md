@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Changed
 - Altered README.md with badges and links to license and changelog.
 
-## [1.0.0] - 2017-9-22
+## 1.0.0 - 2017-9-22
 ## Added
 - Basic game loop
 - 'Go' and 'Quit' commands
@@ -22,4 +22,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Changelog and Readme files
 
 [Unreleased]: https://github.com/afs2015/PepperRPG/compare/v1.0.1...HEAD.
-[1.0.0]: https://github.com/afs2015/PepperRPG/compare/v1.0.0...v1.0.1
+[1.0.1]: https://github.com/afs2015/PepperRPG/compare/v1.0.0...v1.0.1
