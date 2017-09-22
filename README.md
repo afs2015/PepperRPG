@@ -1,6 +1,7 @@
 # PepperRPG
 [![version][version-badge]][CHANGELOG] [![license][license-badge]][LICENSE]
-An RPG based on Pepper the cat.
+
+An RPG based on Pepper™ the cat.
 
 [CHANGELOG]: ./CHANGELOG.md
 [LICENSE]: ./LICENSE
