@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+
+## [1.0.1] - 2017-9-22
+## Added
+- MIT license
+
+## Changed
+- Altered README.md with badges and links to license and changelog.
+
 ## [1.0.0] - 2017-9-22
 ## Added
 - Basic game loop
@@ -13,4 +21,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - .gitignore
 - Changelog and Readme files
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD.
+[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v1.0.1...HEAD.
+[0.0.2]: https://github.com/afs2015/PepperRPG/compare/v1.0.0...v1.0.1
