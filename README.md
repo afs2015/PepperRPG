@@ -1,2 +1,2 @@
 # PepperRPG
-An RPG game based on Pepper the cat.
+An RPG based on Pepper the cat.
