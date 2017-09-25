@@ -24,5 +24,6 @@ source venv/bin/activate
 ```
 
 [CHANGELOG]: ./CHANGELOG.md
+[LICENSE]: ./LICENSE
 [version-badge]: https://img.shields.io/badge/version-1.0.2-blue.svg
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
