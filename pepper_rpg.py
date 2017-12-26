@@ -7,23 +7,38 @@ class color:
 
 def showInstructions():
     # print a main menu and the commands
-    print(color.PURPLE + "Pepper RPG v 1.0" + color.END)
+    print(color.PURPLE + "Welcome to Pepper RPG v 1.0!" + color.END)
+    print("========")
+    print( "In this game you are Pepper, a small Russian Blue cat"
+          + " who is craving a jelly filled donut. \nYour mission if you choose"
+          + " to accept it is to acquire a donut by any means necessary.")
     print("========")
     print("Commands:")
     print("'go [direction]'")
+    print("'look'")
     print("'quit'")
+
+def showDescription(currentRoom):
+    # print the description of the current room
+    print("---------------------------")
+    print(color.PURPLE + rooms[currentRoom]["description"] + color.END)
+    print("---------------------------")
 
 def showStatus(currentRoom):
     # print the player's current status
     print("----------------------------")
-    print("You are in {}".format(rooms[currentRoom]["name"]))
+    print("You are in the {}".format(rooms[currentRoom]["name"]))
     print("-----------------------------")
 
 # dictionary that links rooms to other room positions
-rooms = { 1 : { "name"  : "Bedroom",
-                "south" : 2 },
-          2 : { "name"  : "Living room",
-                "north" : 1}
+rooms = { 1 : { "description": "The bedroom of the house has two windows with" +
+                                " blue curtains and a walk-in closet. There is an exit south.",
+                "name"  : "Bedroom",
+                "south" : 2, },
+          2 : { "description": "The living room has a vintage red couch and hardwood floor. There" +
+                                " are exits north, south, and west.",
+                "name"  : "Living room",
+                "north" : 1, }
         }
 
 showInstructions()
@@ -49,6 +64,8 @@ def main():
                 currentRoom = rooms[currentRoom][move[1]]
             else:
                 print("You can't go that way!")
+        elif move[0] =="look":
+            showDescription(currentRoom)
         elif move[0] == "quit":
             print(color.RED + "Doh, you didn't win this time. Thanks for playing Pepper RPG, have a nice day!" + color.END)
             exit(0)
