@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.0.3] - 2017-12-26
+## [0.3.0] - 2017-12-26
 # Added
 - Descriptions to rooms and a showDescription command to display them
 
@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Typo so now showStatus displays "You are in X room"
 - Numbering in CHANGELOG.md
 
-## [0.0.2] - 2017-9-25
+## [0.2.0] - 2017-9-25
 ## Added
 - Color through ANSI escape sequences: https://stackoverflow.com/questions/287871/print-in-terminal-with-colors-using-python
 
@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Fixed
 - Bug with invalid command being issued for commands other than `quit`
 
-## [0.0.1] - 2017-9-22
+## [0.1.0] - 2017-9-22
 ## Added
 - MIT license
 
@@ -40,6 +40,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - .gitignore
 - Changelog and Readme files
 
-[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.0.2...HEAD.
-[0.0.2]: https://github.com/afs2015/PepperRPG/compare/v0.0.1...v0.0.2
-[0.0.1]: https://github.com/afs2015/PepperRPG/compare/v0.0.0...v0.0.1
+[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.3.0....HEAD.
+[0.3.0]: https://github.com/afs2015/PepperRPG/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/afs2015/PepperRPG/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/afs2015/PepperRPG/compare/v0.0.0...v0.1.0
