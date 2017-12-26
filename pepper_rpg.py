@@ -13,16 +13,19 @@ def showInstructions():
           + " who is craving a jelly filled donut. \nYour mission if you choose"
           + " to accept it is to acquire a donut by any means necessary.")
     print("========")
-    print("Commands:")
-    print("'go [direction]'")
-    print("'look'")
-    print("'quit'")
+    showHelp()
 
 def showDescription(currentRoom):
     # print the description of the current room
-    print("---------------------------")
     print(color.PURPLE + rooms[currentRoom]["description"] + color.END)
-    print("---------------------------")
+
+def showHelp():
+    # prints list of commands
+    print("Commands:")
+    print("'help'")
+    print("'go [direction]'")
+    print("'look'")
+    print("'quit'")
 
 def showStatus(currentRoom):
     # print the player's current status
@@ -64,9 +67,17 @@ def main():
                 currentRoom = rooms[currentRoom][move[1]]
             else:
                 print("You can't go that way!")
+        elif str(move[0]) in  ["north", "south", "east", "west"]:
+            # check if movement is allowed
+            if move[0] in rooms[currentRoom]:
+                currentRoom = rooms[currentRoom][move[0]]
+            else:
+                print("You can't go that way!")
+        elif move[0] == "help":
+            showHelp()
         elif move[0] =="look":
             showDescription(currentRoom)
-        elif move[0] == "quit":
+        elif move[0] == "quit" or move[0] == "exit":
             print(color.RED + "Doh, you didn't win this time. Thanks for playing Pepper RPG, have a nice day!" + color.END)
             exit(0)
         else:

@@ -6,8 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.4.0] - 2017-12-26
+## Added
+- Help command to list commands.
+- Checks for alternative version of Go and Quit commands
+
 ## [0.3.0] - 2017-12-26
-# Added
+## Added
 - Descriptions to rooms and a showDescription command to display them
 
 ## Fixed
@@ -40,7 +45,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - .gitignore
 - Changelog and Readme files
 
-[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.3.0....HEAD.
+[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.4.0....HEAD
+[0.4.0]: https://github.com/afs2015/PepperRPG/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/afs2015/PepperRPG/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/afs2015/PepperRPG/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/afs2015/PepperRPG/compare/v0.0.0...v0.1.0
