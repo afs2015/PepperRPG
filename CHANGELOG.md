@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.5.0] - 2019-05-28
+## Added
+- Bonus room to list of available rooms
+- Edited docstrings to use double quotes instead of comment format
+
 ## [0.4.0] - 2017-12-26
 ## Added
 - Help command to list commands.
@@ -45,7 +50,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - .gitignore
 - Changelog and Readme files
 
-[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.4.0....HEAD
+[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.5.0....HEAD
+[0.5.0]: https://github.com/afs2015/PepperRPG/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/afs2015/PepperRPG/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/afs2015/PepperRPG/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/afs2015/PepperRPG/compare/v0.1.0...v0.2.0

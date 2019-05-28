@@ -1,13 +1,13 @@
-class color:
-    ''' Adds basic colors for print statements '''
+class Color:
+    """ Adds basic colors for print statements """
     RED = '\033[91m'
     PURPLE = '\033[95m'
     YELLOW = '\033[93m'
     END = '\033[0m'
 
 def showInstructions():
-    # print a main menu and the commands
-    print(color.PURPLE + "Welcome to Pepper RPG v 1.0!" + color.END)
+    """ print a main menu and the commands """
+    print(Color.PURPLE + "Welcome to Pepper RPG v 1.0!" + Color.END)
     print("========")
     print( "In this game you are Pepper, a small Russian Blue cat"
           + " who is craving a jelly filled donut. \nYour mission if you choose"
@@ -16,11 +16,11 @@ def showInstructions():
     showHelp()
 
 def showDescription(currentRoom):
-    # print the description of the current room
-    print(color.PURPLE + rooms[currentRoom]["description"] + color.END)
+    """ prints the description of the current room """
+    print(Color.PURPLE + rooms[currentRoom]["description"] + Color.END)
 
 def showHelp():
-    # prints list of commands
+    """ prints list of commands """
     print("Commands:")
     print("'help'")
     print("'go [direction]'")
@@ -28,7 +28,7 @@ def showHelp():
     print("'quit'")
 
 def showStatus(currentRoom):
-    # print the player's current status
+    """ print the player's current status """
     print("----------------------------")
     print("You are in the {}".format(rooms[currentRoom]["name"]))
     print("-----------------------------")
@@ -41,7 +41,12 @@ rooms = { 1 : { "description": "The bedroom of the house has two windows with" +
           2 : { "description": "The living room has a vintage red couch and hardwood floor. There" +
                                 " are exits north, south, and west.",
                 "name"  : "Living room",
-                "north" : 1, }
+                "north" : 1,
+                "south" : 3,},
+          3 : { "description": "The bonus room has two desks, a cat tree, and several musical" +
+                               " instruments. There is an exit north.",
+                "name" : "Bonus room",
+                "north": 2, },
         }
 
 showInstructions()
@@ -78,7 +83,7 @@ def main():
         elif move[0] =="look":
             showDescription(currentRoom)
         elif move[0] == "quit" or move[0] == "exit":
-            print(color.RED + "Doh, you didn't win this time. Thanks for playing Pepper RPG, have a nice day!" + color.END)
+            print(Color.RED + "Doh, you didn't win this time. Thanks for playing Pepper RPG, have a nice day!" + Color.END)
             exit(0)
         else:
             print("Not a valid command")
