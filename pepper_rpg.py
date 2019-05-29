@@ -55,7 +55,7 @@ rooms = {
         "south": 3,
     },
     3: {
-        "description": "The bonus room has two desks, a cat tree, and several "
+        "description": "The bonus room has two desks, a cat tree, and several"
         + " musical instruments. There is an exit north.",
         "name": "Bonus room",
         "north": 2,
@@ -97,8 +97,8 @@ def main():
         elif move[0] == "look":
             showDescription(currentRoom)
         elif move[0] == "quit" or move[0] == "exit":
-            print(Color.RED + "Doh, you didn't win this time. Thanks" +
-                  "for playing Pepper RPG, have a nice day!" + Color.END)
+            print(Color.RED + "Doh, you didn't win this time. Thanks "
+            + "for playing Pepper RPG, have a nice day!" + Color.END)
             exit(0)
         else:
             print("Not a valid command")
