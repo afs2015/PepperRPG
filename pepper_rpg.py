@@ -20,7 +20,7 @@ def showInstructions():
 
 def showDescription(currentRoom):
     """ prints the description of the current room """
-    print(Color.PURPLE + rooms[currentRoom]["description"] + Color.END)
+    print(Color.PURPLE + rooms[currentRoom]["description"] + '\n' + Color.END)
 
 
 def showHelp():
@@ -28,7 +28,7 @@ def showHelp():
     print("Commands:")
     print("'help'")
     print("'go [direction]'")
-    print("'look'")
+    print("'(l)ook'")
     print("'quit'")
 
 
@@ -49,10 +49,12 @@ rooms = {
     },
     2: {
         "description": "The living room has a vintage red couch and hardwood "
-        + "floor. There are exits north, south, and west.",
+        + "floor. There are exits north-east, north-west, south, and west.",
         "name": "Living room",
-        "north": 1,
+        "north-east": 1,
+        "north-west": 5,
         "south": 3,
+        "west": 4,
     },
     3: {
         "description": "The bonus room has two desks, a cat tree, and several"
@@ -60,6 +62,18 @@ rooms = {
         "name": "Bonus room",
         "north": 2,
     },
+    4: {
+        "description": "The bathroom has a sink, toliet, and a white bathtub"
+        + " with a teal shower curtain. There is an exit east.",
+        "name": "Bathroom",
+        "east": 2,
+    },
+    5: {
+        "description": "The kitchen has a black and white checkered floor with a"
+        + "wooden table and two chairs. There is an exit south.",
+        "name": "Kitchen",
+        "south": 2,
+    }
 }
 
 showInstructions()
@@ -70,11 +84,16 @@ def main():
     # Game Variables
     currentRoom = 1
     gameStatus = "ongoing"
+    used_look = False
+    directions = ["north", "north-east", "north-west", "south", "east", "west"]
 
     # Game loop
     while gameStatus == "ongoing":
 
-        showStatus(currentRoom)
+        if not used_look:
+            showStatus(currentRoom)
+
+        used_look = False
 
         # Get player's next 'move'
         move = input(">").lower().split()
@@ -86,7 +105,7 @@ def main():
                 currentRoom = rooms[currentRoom][move[1]]
             else:
                 print("You can't go that way!")
-        elif str(move[0]) in ["north", "south", "east", "west"]:
+        elif str(move[0]) in directions:
             # Check if movement is allowed
             if move[0] in rooms[currentRoom]:
                 currentRoom = rooms[currentRoom][move[0]]
@@ -94,8 +113,9 @@ def main():
                 print("You can't go that way!")
         elif move[0] == "help":
             showHelp()
-        elif move[0] == "look":
+        elif move[0] == "look" or move[0] == "l":
             showDescription(currentRoom)
+            used_look = True
         elif move[0] == "quit" or move[0] == "exit":
             print(Color.RED + "Doh, you didn't win this time. Thanks "
             + "for playing Pepper RPG, have a nice day!" + Color.END)
