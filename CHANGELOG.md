@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.8.0] - 2019-05-31
+### Added
+- movePlayer fuction to avoid duplicate code
+- Instructions to README.md to run game
+
+### Changed
+- Exit for Living Room to be north to avoid confusion
+
 ## [0.7.0] - 2019-05-30
 ### Added
 - Kitchen and Bathroom rooms
@@ -70,7 +78,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - .gitignore
 - Changelog and Readme files
 
-[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.7.0....HEAD
+[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.8.0....HEAD
+[0.8.0]: https://github.com/afs2015/PepperRPG/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/afs2015/PepperRPG/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/afs2015/PepperRPG/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/afs2015/PepperRPG/compare/v0.5.0...v0.6.0

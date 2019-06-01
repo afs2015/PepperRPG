@@ -23,7 +23,10 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
+3. To run PepperRPG
+python pepper_rpg.py
+
 [CHANGELOG]: ./CHANGELOG.md
 [LICENSE]: ./LICENSE
-[version-badge]: https://img.shields.io/badge/version-0.6.0-blue.svg
+[version-badge]: https://img.shields.io/badge/version-0.8.0-blue.svg
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg

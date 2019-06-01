@@ -39,6 +39,15 @@ def showStatus(currentRoom):
     print("-----------------------------")
 
 
+def movePlayer(direction, currentRoom):
+    """ checks if a direction is allowed, if so move player """
+    if direction in rooms[currentRoom]:
+        room = rooms[currentRoom][direction]
+    else:
+        room = currentRoom
+        print("You can't go that way! \n")
+    return room
+
 # Dictionary that links rooms to other room positions
 rooms = {
     1: {
@@ -49,9 +58,9 @@ rooms = {
     },
     2: {
         "description": "The living room has a vintage red couch and hardwood "
-        + "floor. There are exits north-east, north-west, south, and west.",
+        + "floor. There are exits north, north-west, south, and west.",
         "name": "Living room",
-        "north-east": 1,
+        "north": 1,
         "north-west": 5,
         "south": 3,
         "west": 4,
@@ -100,17 +109,9 @@ def main():
 
         # Handle go command
         if move[0] == "go":
-            # Check if movement is allowed
-            if move[1] in rooms[currentRoom]:
-                currentRoom = rooms[currentRoom][move[1]]
-            else:
-                print("You can't go that way!")
+            currentRoom = movePlayer(move[1], currentRoom)
         elif str(move[0]) in directions:
-            # Check if movement is allowed
-            if move[0] in rooms[currentRoom]:
-                currentRoom = rooms[currentRoom][move[0]]
-            else:
-                print("You can't go that way!")
+            currentRoom = movePlayer(move[0], currentRoom)
         elif move[0] == "help":
             showHelp()
         elif move[0] == "look" or move[0] == "l":
