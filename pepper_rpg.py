@@ -48,6 +48,38 @@ def movePlayer(direction, currentRoom):
         print("You can't go that way! \n")
     return room
 
+
+def parseMove(move, current_room, directions):
+    """ takes in a player move and does appropriate actions """
+
+    move_results = {
+        'has_player_moved': False,
+        'current_room': current_room,
+        'used_look': False,
+    }
+
+    # Handle go command
+    if move[0] == "go":
+        move_results['current_room'] = movePlayer(move[1], current_room)
+        move_results['has_player_moved'] = True
+    elif str(move[0]) in directions:
+        move_results['current_room'] = movePlayer(move[0], current_room)
+        move_results['has_player_moved'] = True
+    elif move[0] == "help":
+        showHelp()
+    elif move[0] == "look" or move[0] == "l":
+        showDescription(current_room)
+        move_results['used_look'] = True
+    elif move[0] == "quit" or move[0] == "exit":
+        print(Color.RED + "Doh, you didn't win this time. Thanks "
+        + "for playing Pepper RPG, have a nice day!" + Color.END)
+        exit(0)
+    else:
+        print("Not a valid command")
+
+    return move_results
+
+
 # Dictionary that links rooms to other room positions
 rooms = {
     1: {
@@ -91,38 +123,32 @@ showInstructions()
 def main():
 
     # Game Variables
-    currentRoom = 1
-    gameStatus = "ongoing"
+    current_room = 1
+    game_status = "ongoing"
     used_look = False
     directions = ["north", "north-east", "north-west", "south", "east", "west"]
 
     # Game loop
-    while gameStatus == "ongoing":
+    while game_status == "ongoing":
 
         if not used_look:
-            showStatus(currentRoom)
+            showStatus(current_room)
 
         used_look = False
 
         # Get player's next 'move'
         move = input(">").lower().split()
 
-        # Handle go command
-        if move[0] == "go":
-            currentRoom = movePlayer(move[1], currentRoom)
-        elif str(move[0]) in directions:
-            currentRoom = movePlayer(move[0], currentRoom)
-        elif move[0] == "help":
-            showHelp()
-        elif move[0] == "look" or move[0] == "l":
-            showDescription(currentRoom)
+        # Handle player's move
+        player_move = parseMove(move, current_room, directions)
+        
+        # On player move command update current room
+        # import pdb; pdb.set_trace()
+        if player_move['has_player_moved']:
+            current_room = player_move['current_room']
+
+        if player_move['used_look']:
             used_look = True
-        elif move[0] == "quit" or move[0] == "exit":
-            print(Color.RED + "Doh, you didn't win this time. Thanks "
-            + "for playing Pepper RPG, have a nice day!" + Color.END)
-            exit(0)
-        else:
-            print("Not a valid command")
 
 
 if __name__ == "__main__":
