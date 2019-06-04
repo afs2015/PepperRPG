@@ -24,7 +24,10 @@ source venv/bin/activate
 ```
 
 3. To run PepperRPG
+
+```
 python pepper_rpg.py
+```
 
 [CHANGELOG]: ./CHANGELOG.md
 [LICENSE]: ./LICENSE
