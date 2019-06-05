@@ -143,7 +143,6 @@ def main():
         player_move = parseMove(move, current_room, directions)
         
         # On player move command update current room
-        # import pdb; pdb.set_trace()
         if player_move['has_player_moved']:
             current_room = player_move['current_room']
 
