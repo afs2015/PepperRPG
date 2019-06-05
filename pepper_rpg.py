@@ -49,7 +49,21 @@ def movePlayer(direction, currentRoom):
     return room
 
 
-def parseMove(move, current_room, directions):
+
+def exitGame(score):
+    """ handles if user quits the game """
+
+    print(
+        Color.RED
+        + "Doh, you didn't win this time. You lost "
+        + "with a score of "
+        + str(score) + ". "
+        + "Thanks for playing Pepper RPG, have a nice day!" 
+        + Color.END
+    )
+    exit(0)
+
+def parseMove(move, current_room, directions, score):
     """ takes in a player move and does appropriate actions """
 
     move_results = {
@@ -71,9 +85,7 @@ def parseMove(move, current_room, directions):
         showDescription(current_room)
         move_results['used_look'] = True
     elif move[0] == "quit" or move[0] == "exit":
-        print(Color.RED + "Doh, you didn't win this time. Thanks "
-        + "for playing Pepper RPG, have a nice day!" + Color.END)
-        exit(0)
+        exitGame(score)
     else:
         print("Not a valid command")
 
@@ -110,8 +122,8 @@ rooms = {
         "east": 2,
     },
     5: {
-        "description": "The kitchen has a black and white checkered floor with a"
-        + "wooden table and two chairs. There is an exit south.",
+        "description": "The kitchen has a black and white checkered floor with "
+        + "a wooden table and two chairs. There is an exit south.",
         "name": "Kitchen",
         "south": 2,
     }
@@ -124,9 +136,10 @@ def main():
 
     # Game Variables
     current_room = 1
-    game_status = "ongoing"
-    used_look = False
     directions = ["north", "north-east", "north-west", "south", "east", "west"]
+    game_status = "ongoing"
+    score = 0
+    used_look = False
 
     # Game loop
     while game_status == "ongoing":
@@ -140,7 +153,7 @@ def main():
         move = input(">").lower().split()
 
         # Handle player's move
-        player_move = parseMove(move, current_room, directions)
+        player_move = parseMove(move, current_room, directions, score)
         
         # On player move command update current room
         if player_move['has_player_moved']:
