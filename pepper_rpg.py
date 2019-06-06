@@ -18,9 +18,10 @@ def showInstructions():
     showHelp()
 
 
-def showDescription(currentRoom):
-    """ prints the description of the current room """
-    print(Color.PURPLE + rooms[currentRoom]["description"] + '\n' + Color.END)
+def showDescription(current_room, move_results):
+    """ prints the description of the current room and updates move results """
+    print(Color.PURPLE + rooms[current_room]["description"] + '\n' + Color.END)
+    move_results['used_look'] = True
 
 
 def showHelp():
@@ -32,22 +33,20 @@ def showHelp():
     print("'quit'")
 
 
-def showStatus(currentRoom):
+def showStatus(current_room):
     """ print the player's current status """
     print("----------------------------")
-    print("You are in the {}".format(rooms[currentRoom]["name"]))
+    print("You are in the {}".format(rooms[current_room]["name"]))
     print("-----------------------------")
 
 
-def movePlayer(direction, currentRoom):
-    """ checks if a direction is allowed, if so move player """
-    if direction in rooms[currentRoom]:
-        room = rooms[currentRoom][direction]
+def movePlayer(direction, current_room, move_results):
+    """ checks if a direction is allowed, if so move player and update move results"""
+    if direction in rooms[current_room]:
+        move_results['current_room'] = rooms[current_room][direction]
+        move_results['has_player_moved'] = True
     else:
-        room = currentRoom
         print("You can't go that way! \n")
-    return room
-
 
 
 def exitGame(score):
@@ -63,6 +62,7 @@ def exitGame(score):
     )
     exit(0)
 
+
 def parseMove(move, current_room, directions, score):
     """ takes in a player move and does appropriate actions """
 
@@ -74,16 +74,13 @@ def parseMove(move, current_room, directions, score):
 
     # Handle go command
     if move[0] == "go":
-        move_results['current_room'] = movePlayer(move[1], current_room)
-        move_results['has_player_moved'] = True
+        movePlayer(move[1], current_room, move_results)
     elif str(move[0]) in directions:
-        move_results['current_room'] = movePlayer(move[0], current_room)
-        move_results['has_player_moved'] = True
+        movePlayer(move[0], current_room, move_results)
     elif move[0] == "help":
         showHelp()
     elif move[0] == "look" or move[0] == "l":
-        showDescription(current_room)
-        move_results['used_look'] = True
+        showDescription(current_room, move_results)
     elif move[0] == "quit" or move[0] == "exit":
         exitGame(score)
     else:
