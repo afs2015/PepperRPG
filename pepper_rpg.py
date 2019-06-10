@@ -83,6 +83,8 @@ def parseMove(move, current_room, directions, score):
         showDescription(current_room, move_results)
     elif move[0] == "quit" or move[0] == "exit":
         exitGame(score)
+    elif move[0] in ["talk", "speak", "meow"]:
+        print("You say, \"Meow!\" \n")
     else:
         print("Not a valid command")
 
@@ -99,7 +101,8 @@ rooms = {
     },
     2: {
         "description": "The living room has a vintage red couch and hardwood "
-        + "floor. There are exits north, north-west, south, and west.",
+        + "floor with a few windows for you to look outside. There are exits "
+        + "north, north-west, south, and west.",
         "name": "Living room",
         "north": 1,
         "north-west": 5,

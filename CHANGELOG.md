@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.12.0] - 2019-06-10
+### Added
+- ability to say "Meow!" as a command
+
 ## [0.11.0] - 2019-06-05
 ### Changed
 - Show descriptions to modify used_look
@@ -94,7 +98,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - .gitignore
 - Changelog and Readme files
 
-[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.11.0....HEAD
+[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.12.0....HEAD
+[0.12.0]: https://github.com/afs2015/PepperRPG/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/afs2015/PepperRPG/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/afs2015/PepperRPG/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/afs2015/PepperRPG/compare/v0.8.0...v0.9.0
