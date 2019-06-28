@@ -41,7 +41,8 @@ def showStatus(current_room):
 
 
 def movePlayer(direction, current_room, move_results):
-    """ checks if a direction is allowed, if so move player and update move results"""
+    """ checks if a direction is allowed, if so move player
+        and update move results"""
     if direction in rooms[current_room]:
         move_results['current_room'] = rooms[current_room][direction]
         move_results['has_player_moved'] = True
@@ -57,7 +58,7 @@ def exitGame(score):
         + "Doh, you didn't win this time. You lost "
         + "with a score of "
         + str(score) + ". "
-        + "Thanks for playing Pepper RPG, have a nice day!" 
+        + "Thanks for playing Pepper RPG, have a nice day!"
         + Color.END
     )
     exit(0)
@@ -122,8 +123,8 @@ rooms = {
         "east": 2,
     },
     5: {
-        "description": "The kitchen has a black and white checkered floor with "
-        + "a wooden table and two chairs. There is an exit south.",
+        "description": "The kitchen has a black and white checkered floor"
+        + "with a wooden table and two chairs. There is an exit south.",
         "name": "Kitchen",
         "south": 2,
     }
@@ -154,7 +155,7 @@ def main():
 
         # Handle player's move
         player_move = parseMove(move, current_room, directions, score)
-        
+
         # On player move command update current room
         if player_move['has_player_moved']:
             current_room = player_move['current_room']
