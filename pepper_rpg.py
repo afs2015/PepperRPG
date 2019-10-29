@@ -1,3 +1,5 @@
+from random import choice
+
 class Color:
     """ Adds basic colors for print statements """
     RED = '\033[91m'
@@ -64,6 +66,18 @@ def exitGame(score):
     exit(0)
 
 
+def speak():
+    """ handles speaking """
+    speaking_options = [
+        'Meow.',
+        'Meow?',
+        'Meeeeeeeooowww!'
+    ]
+
+    speaking_choice = choice(speaking_options)
+    print("You say, \"{}\" \n".format(speaking_choice))
+
+
 def parseMove(move, current_room, directions, score):
     """ takes in a player move and does appropriate actions """
 
@@ -85,7 +99,7 @@ def parseMove(move, current_room, directions, score):
     elif move[0] == "quit" or move[0] == "exit":
         exitGame(score)
     elif move[0] in ["talk", "speak", "meow"]:
-        print("You say, \"Meow!\" \n")
+        speak()
     else:
         print("Not a valid command")
 
@@ -96,9 +110,11 @@ def parseMove(move, current_room, directions, score):
 rooms = {
     1: {
         "description": "The bedroom of the house has two windows with"
-        + " blue curtains and a walk-in closet. There is an exit south.",
+        + " blue curtains and a walk-in closet. Your human is sleeping on"
+        + " the bed. There is an exit south.",
         "name": "Bedroom",
         "south": 2,
+        "human-awake": False,
     },
     2: {
         "description": "The living room has a vintage red couch and hardwood "
@@ -130,9 +146,6 @@ rooms = {
     }
 }
 
-showInstructions()
-
-
 def main():
 
     # Game Variables
@@ -141,6 +154,8 @@ def main():
     game_status = "ongoing"
     score = 0
     used_look = False
+
+    showInstructions()
 
     # Game loop
     while game_status == "ongoing":

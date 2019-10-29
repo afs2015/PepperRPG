@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.13.0] - 2019-10-29
+### Changed
+- Moved "Meow" to a speak command, provided more options.
+- Altered room "Bedroom" to add a sleeping human in description and bool for sleeping
+
 ## [0.12.0] - 2019-06-10
 ### Added
 - ability to say "Meow!" as a command
@@ -98,7 +103,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - .gitignore
 - Changelog and Readme files
 
-[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.12.0....HEAD
+[Unreleased]: https://github.com/afs2015/PepperRPG/compare/v0.13.0....HEAD
+[0.13.0]: https://github.com/afs2015/PepperRPG/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/afs2015/PepperRPG/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/afs2015/PepperRPG/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/afs2015/PepperRPG/compare/v0.9.0...v0.10.0
