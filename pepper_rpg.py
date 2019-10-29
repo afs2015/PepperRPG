@@ -66,7 +66,7 @@ def exitGame(score):
     exit(0)
 
 
-def speak():
+def speak(room_index, move_results):
     """ handles speaking """
     speaking_options = [
         'Meow.',
@@ -77,6 +77,18 @@ def speak():
     speaking_choice = choice(speaking_options)
     print("You say, \"{}\" \n".format(speaking_choice))
 
+    # Speaking wakes up sleeping human so they can grab a donut
+    room = rooms[room_index]
+    if 'human-awake' in room and not room['human-awake']:
+        print(
+            "Your meowing has awoken your hooman! They groggily"
+            + " scamper off to Union Square donuts to aquire some"
+            + " jelly donuts."
+        )
+        print(Color.PURPLE + "+10 points for waking up the hooman. \n" + Color.END)
+        room['human-awake'] = True
+        move_results['score'] += 10
+
 
 def parseMove(move, current_room, directions, score):
     """ takes in a player move and does appropriate actions """
@@ -85,6 +97,7 @@ def parseMove(move, current_room, directions, score):
         'has_player_moved': False,
         'current_room': current_room,
         'used_look': False,
+        'score': score,
     }
 
     # Handle go command
@@ -99,7 +112,7 @@ def parseMove(move, current_room, directions, score):
     elif move[0] == "quit" or move[0] == "exit":
         exitGame(score)
     elif move[0] in ["talk", "speak", "meow"]:
-        speak()
+        speak(current_room, move_results)
     else:
         print("Not a valid command")
 
@@ -149,10 +162,10 @@ rooms = {
 def main():
 
     # Game Variables
+    score = 0
     current_room = 1
     directions = ["north", "north-east", "north-west", "south", "east", "west"]
     game_status = "ongoing"
-    score = 0
     used_look = False
 
     showInstructions()
@@ -170,6 +183,7 @@ def main():
 
         # Handle player's move
         player_move = parseMove(move, current_room, directions, score)
+        score = player_move['score']
 
         # On player move command update current room
         if player_move['has_player_moved']:
