@@ -1,5 +1,6 @@
 from random import choice
 
+
 class Color:
     """ Adds basic colors for print statements """
     RED = '\033[91m'
@@ -71,7 +72,8 @@ def speak(room_index, move_results):
     speaking_options = [
         'Meow.',
         'Meow?',
-        'Meeeeeeeooowww!'
+        'Meeeeeeeooowww!',
+        'MEEEEOOOOOWWWW!!!'
     ]
 
     speaking_choice = choice(speaking_options)
@@ -85,9 +87,30 @@ def speak(room_index, move_results):
             + " scamper off to Union Square donuts to aquire some"
             + " jelly donuts."
         )
-        print(Color.PURPLE + "+10 points for waking up the hooman. \n" + Color.END)
-        room['human-awake'] = True
+
         move_results['score'] += 10
+        print(
+            Color.PURPLE
+            + "+10 points for waking up the hooman. \n"
+            + Color.END
+        )
+
+        room['description'] = (
+            "The bedroom of the house has two windows with blue curtains"
+            + " and a walk-in closet. The sheets of the bed are wrinked from"
+            + " where the hooman was sleeping and got up. There is an"
+            + " exit south."
+        )
+        room['human-awake'] = True
+
+        kitchen = rooms[5]
+        kitchen['description'] = (
+            "The kitchen has a black and white checkered floor"
+            + " with a wooden table with a large jelly DONUT!"
+            + " There are two chairs near the table. There is"
+            + " an exit south."
+        )
+        kitchen['donut-active'] = True
 
 
 def parseMove(move, current_room, directions, score):
@@ -156,8 +179,10 @@ rooms = {
         + "with a wooden table and two chairs. There is an exit south.",
         "name": "Kitchen",
         "south": 2,
+        "donut-active": False,
     }
 }
+
 
 def main():
 
